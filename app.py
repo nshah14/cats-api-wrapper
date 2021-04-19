@@ -13,13 +13,13 @@ from Utilities.Services.Errors.errors import  custom_error as error
 app = Flask(__name__)
 URL = 'https://cat-fact.herokuapp.com/'
 
-
+# get all the facts about cat.
 @app.route('/facts', methods=['GET'])
 def facts():
     data = requests.get(URL+'facts')
     return jsonify(data.json())
 
-
+# Get facts about cat for specific user.
 @app.route('/facts/<name>', methods=['GET'])
 def get_facts_name(name):
     data = requests.get(URL+'facts/%s'% name)
